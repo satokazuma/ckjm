@@ -6,6 +6,8 @@ public class CkjmTest {
 
 	@Test
 	public void test() {
-		MetricsFilter.main(new String[] {});
+		// read from property and ignore the file.
+		MetricsFilter.main(new String[] { "" });
+
 	}
 }
