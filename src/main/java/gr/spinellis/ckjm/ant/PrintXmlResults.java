@@ -14,10 +14,10 @@
  */
 package gr.spinellis.ckjm.ant;
 
+import java.io.PrintStream;
+
 import gr.spinellis.ckjm.CkjmOutputHandler;
 import gr.spinellis.ckjm.ClassMetrics;
-
-import java.io.PrintStream;
 
 /**
  * XML output formatter
@@ -25,32 +25,25 @@ import java.io.PrintStream;
  * @author Julien Rentrop
  */
 public class PrintXmlResults implements CkjmOutputHandler {
-    private PrintStream p;
+	private PrintStream p;
 
-    public PrintXmlResults(PrintStream p) {
-        this.p = p;
-    }
+	public PrintXmlResults(PrintStream p) {
+		this.p = p;
+	}
 
-    public void printHeader() {
-        p.println("<?xml version=\"1.0\"?>");
-        p.println("<ckjm>");
-    }
+	public void printHeader() {
+		p.println("<?xml version=\"1.0\"?>");
+		p.println("<ckjm>");
+	}
 
-    public void handleClass(String name, ClassMetrics c) {
-        p.print("<class>\n" +
-                "<name>" + name + "</name>\n" +
-                "<wmc>" + c.getWmc() + "</wmc>\n" +
-                "<dit>" + c.getDit() + "</dit>\n" +
-                "<noc>" + c.getNoc() + "</noc>\n" +
-                "<cbo>" + c.getCbo() + "</cbo>\n" +
-                "<rfc>" + c.getRfc() + "</rfc>\n" +
-                "<lcom>" + c.getLcom() + "</lcom>\n" +
-                "<ca>" + c.getCa() + "</ca>\n" +
-                "<npm>" + c.getNpm() + "</npm>\n" +
-                "</class>\n");
-    }
+	public void handleClass(String name, ClassMetrics c) {
+		p.print("<class>\n" + "<name>" + name + "</name>\n" + "<wmc>" + c.getWmc() + "</wmc>\n" + "<dit>" + c.getDit()
+				+ "</dit>\n" + "<noc>" + c.getNoc() + "</noc>\n" + "<cbo>" + c.getCbo() + "</cbo>\n" + "<rfc>"
+				+ c.getRfc() + "</rfc>\n" + "<lcom>" + c.getLcom() + "</lcom>\n" + "<ca>" + c.getCa() + "</ca>\n"
+				+ "<npm>" + c.getNpm() + "</npm>\n" + "</class>\n");
+	}
 
-    public void printFooter () {
-        p.println("</ckjm>");
-    }
+	public void printFooter() {
+		p.println("</ckjm>");
+	}
 }
